@@ -29,6 +29,15 @@
 		5EC47C6B289D7FCE00892FEE /* CategoryListContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C6A289D7FCE00892FEE /* CategoryListContracts.swift */; };
 		5EC47C6D289D802F00892FEE /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C6C289D802F00892FEE /* CategoryListViewModel.swift */; };
 		5EC47C6F289D812C00892FEE /* CategoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C6E289D812C00892FEE /* CategoryListModel.swift */; };
+		5EC47C77289D8DEF00892FEE /* ProductListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C75289D8DEF00892FEE /* ProductListVC.swift */; };
+		5EC47C78289D8DEF00892FEE /* ProductListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC47C76289D8DEF00892FEE /* ProductListVC.xib */; };
+		5EC47C7C289D8E1800892FEE /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C7A289D8E1800892FEE /* ProductListCell.swift */; };
+		5EC47C7D289D8E1800892FEE /* ProductListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC47C7B289D8E1800892FEE /* ProductListCell.xib */; };
+		5EC47C7F289D8E7700892FEE /* ProductListContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C7E289D8E7700892FEE /* ProductListContracts.swift */; };
+		5EC47C81289D8E8900892FEE /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C80289D8E8900892FEE /* ProductListViewModel.swift */; };
+		5EC47C83289D8E9D00892FEE /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C82289D8E9D00892FEE /* ProductListModel.swift */; };
+		5EC47C86289D91A600892FEE /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C85289D91A600892FEE /* ExtString.swift */; };
+		5EC47C89289D9A4000892FEE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5EC47C88289D9A4000892FEE /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +84,14 @@
 		5EC47C6A289D7FCE00892FEE /* CategoryListContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListContracts.swift; sourceTree = "<group>"; };
 		5EC47C6C289D802F00892FEE /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
 		5EC47C6E289D812C00892FEE /* CategoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModel.swift; sourceTree = "<group>"; };
+		5EC47C75289D8DEF00892FEE /* ProductListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListVC.swift; sourceTree = "<group>"; };
+		5EC47C76289D8DEF00892FEE /* ProductListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListVC.xib; sourceTree = "<group>"; };
+		5EC47C7A289D8E1800892FEE /* ProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
+		5EC47C7B289D8E1800892FEE /* ProductListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListCell.xib; sourceTree = "<group>"; };
+		5EC47C7E289D8E7700892FEE /* ProductListContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListContracts.swift; sourceTree = "<group>"; };
+		5EC47C80289D8E8900892FEE /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		5EC47C82289D8E9D00892FEE /* ProductListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListModel.swift; sourceTree = "<group>"; };
+		5EC47C85289D91A600892FEE /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EC47C89289D9A4000892FEE /* Kingfisher in Frameworks */,
 				5EC47C5D289D74B800892FEE /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +145,7 @@
 		5EC47C17289D6FB400892FEE /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				5EC47C84289D919300892FEE /* Common */,
 				5EC47C57289D747400892FEE /* Network */,
 				5EC47C4C289D714300892FEE /* Scene */,
 				5EC47C4B289D6FF800892FEE /* App */,
@@ -169,12 +188,8 @@
 		5EC47C4C289D714300892FEE /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				5EC47C65289D7F7200892FEE /* Cell */,
-				5EC47C4D289D717600892FEE /* CategoryListVC.swift */,
-				5EC47C4E289D717600892FEE /* CategoryListVC.xib */,
-				5EC47C6A289D7FCE00892FEE /* CategoryListContracts.swift */,
-				5EC47C6C289D802F00892FEE /* CategoryListViewModel.swift */,
-				5EC47C6E289D812C00892FEE /* CategoryListModel.swift */,
+				5EC47C74289D8D8800892FEE /* ProductList */,
+				5EC47C73289D8D7200892FEE /* CategoryList */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -207,6 +222,49 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		5EC47C73289D8D7200892FEE /* CategoryList */ = {
+			isa = PBXGroup;
+			children = (
+				5EC47C65289D7F7200892FEE /* Cell */,
+				5EC47C4D289D717600892FEE /* CategoryListVC.swift */,
+				5EC47C4E289D717600892FEE /* CategoryListVC.xib */,
+				5EC47C6A289D7FCE00892FEE /* CategoryListContracts.swift */,
+				5EC47C6C289D802F00892FEE /* CategoryListViewModel.swift */,
+				5EC47C6E289D812C00892FEE /* CategoryListModel.swift */,
+			);
+			path = CategoryList;
+			sourceTree = "<group>";
+		};
+		5EC47C74289D8D8800892FEE /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				5EC47C79289D8DF300892FEE /* Cell */,
+				5EC47C75289D8DEF00892FEE /* ProductListVC.swift */,
+				5EC47C76289D8DEF00892FEE /* ProductListVC.xib */,
+				5EC47C7E289D8E7700892FEE /* ProductListContracts.swift */,
+				5EC47C80289D8E8900892FEE /* ProductListViewModel.swift */,
+				5EC47C82289D8E9D00892FEE /* ProductListModel.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		5EC47C79289D8DF300892FEE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5EC47C7A289D8E1800892FEE /* ProductListCell.swift */,
+				5EC47C7B289D8E1800892FEE /* ProductListCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5EC47C84289D919300892FEE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5EC47C85289D91A600892FEE /* ExtString.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,6 +283,7 @@
 			name = StoreApp;
 			packageProductDependencies = (
 				5EC47C5C289D74B800892FEE /* Alamofire */,
+				5EC47C88289D9A4000892FEE /* Kingfisher */,
 			);
 			productName = StoreApp;
 			productReference = 5EC47C15289D6FB400892FEE /* StoreApp.app */;
@@ -300,6 +359,7 @@
 			mainGroup = 5EC47C0C289D6FB400892FEE;
 			packageReferences = (
 				5EC47C5B289D74B800892FEE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5EC47C87289D9A4000892FEE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 5EC47C16289D6FB400892FEE /* Products */;
 			projectDirPath = "";
@@ -318,9 +378,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EC47C28289D6FB600892FEE /* LaunchScreen.storyboard in Resources */,
+				5EC47C7D289D8E1800892FEE /* ProductListCell.xib in Resources */,
 				5EC47C25289D6FB600892FEE /* Assets.xcassets in Resources */,
 				5EC47C50289D717600892FEE /* CategoryListVC.xib in Resources */,
 				5EC47C69289D7F9900892FEE /* CategoryListCell.xib in Resources */,
+				5EC47C78289D8DEF00892FEE /* ProductListVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,16 +409,22 @@
 			files = (
 				5EC47C5A289D749400892FEE /* NetworkRequest.swift in Sources */,
 				5EC47C6F289D812C00892FEE /* CategoryListModel.swift in Sources */,
+				5EC47C86289D91A600892FEE /* ExtString.swift in Sources */,
 				5EC47C6B289D7FCE00892FEE /* CategoryListContracts.swift in Sources */,
 				5EC47C5F289D74C100892FEE /* NetworkError.swift in Sources */,
 				5EC47C52289D739F00892FEE /* AppRouter.swift in Sources */,
+				5EC47C7F289D8E7700892FEE /* ProductListContracts.swift in Sources */,
+				5EC47C77289D8DEF00892FEE /* ProductListVC.swift in Sources */,
 				5EC47C19289D6FB400892FEE /* AppDelegate.swift in Sources */,
 				5EC47C54289D73AA00892FEE /* AppContainer.swift in Sources */,
 				5EC47C68289D7F9900892FEE /* CategoryListCell.swift in Sources */,
 				5EC47C6D289D802F00892FEE /* CategoryListViewModel.swift in Sources */,
+				5EC47C83289D8E9D00892FEE /* ProductListModel.swift in Sources */,
 				5EC47C56289D73BB00892FEE /* AppBuilder.swift in Sources */,
 				5EC47C63289D750300892FEE /* APIService.swift in Sources */,
 				5EC47C4F289D717600892FEE /* CategoryListVC.swift in Sources */,
+				5EC47C81289D8E8900892FEE /* ProductListViewModel.swift in Sources */,
+				5EC47C7C289D8E1800892FEE /* ProductListCell.swift in Sources */,
 				5EC47C23289D6FB400892FEE /* StoreApp.xcdatamodeld in Sources */,
 				5EC47C61289D74E400892FEE /* Constants.swift in Sources */,
 			);
@@ -700,6 +768,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		5EC47C87289D9A4000892FEE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -707,6 +783,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5EC47C5B289D74B800892FEE /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		5EC47C88289D9A4000892FEE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EC47C87289D9A4000892FEE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -16,4 +16,12 @@ final class AppBuilder {
         viewController.viewModel = CategoryListViewModel(service: app.service)
         return viewController
     }
+    
+    static func makeProductList(with category: String) -> ProductListVC {
+        
+        let viewController = ProductListVC(nibName: "ProductListVC", bundle: Bundle.main)
+        viewController.viewModel = ProductListViewModel(service: app.service, category: category)
+        
+        return viewController
+    }
 }

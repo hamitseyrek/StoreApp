@@ -11,6 +11,7 @@ import Alamofire
 
 protocol APIServiceProtocol {
     func getCategories(completion: @escaping (Result<[String], NetworkError >) -> Void)
+    func getProducts(category: String, completion: @escaping (Result<[ProductListModel], NetworkError>) -> Void)
 }
 
 struct APIService: APIServiceProtocol {
@@ -22,6 +23,20 @@ struct APIService: APIServiceProtocol {
             .responseDecodable(of: [String].self) { (response) in
                 
                 guard response.error == nil else { return completion(.failure(.apiError)) }
+                guard let products = response.value else { return completion(.failure(.serializationError)) }
+                return completion(.success(products))
+            }
+    }
+    
+    func getProducts(category: String, completion: @escaping (Result<[ProductListModel], NetworkError>) -> Void) {
+        
+        let path = "\(Constants.productsByCategory.rawValue)/\(category)"
+        
+        AF.request(path.formatForPAth())
+            .validate()
+            .responseDecodable(of: [ProductListModel].self) { (response) in
+                
+                guard response.error == nil else { return completion(.failure(.invalidEndpoint)) }
                 guard let products = response.value else { return completion(.failure(.serializationError)) }
                 return completion(.success(products))
             }

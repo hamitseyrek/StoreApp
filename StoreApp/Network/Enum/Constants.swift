@@ -9,4 +9,5 @@ import Foundation
 
 enum Constants : String {
     case categories = "https://fakestoreapi.com/products/categories"
+    case productsByCategory = "https://fakestoreapi.com/products/category"
 }

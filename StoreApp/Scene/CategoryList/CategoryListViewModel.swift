@@ -11,6 +11,7 @@ final class CategoryListViewModel: CategoryListViewModelProtocol {
     
     weak var delegate: CategoryListViewModelDelegate?
     private let service: APIServiceProtocol
+    private var categories: [String] = []
     
     init(service: APIServiceProtocol) {
         self.service = service
@@ -29,12 +30,21 @@ final class CategoryListViewModel: CategoryListViewModelProtocol {
             
             switch result {
             case .success(let response):
-                let categories = response
-                self.notify(.showCategoryList(categories))
+                self.categories = response
+                print("dode", response)
+                self.notify(.showCategoryList(self.categories))
             case .failure(let error):
                 print(error.rawValue)
             }
         }
+    }
+    
+    func selectCategory(at index: Int) {
+        let category = categories[index]
+        print("************")
+        print(category)
+        print("************")
+        delegate?.navigare(to: .productList(category: category))
     }
     
     private func notify(_ output: CategoryListViewModelOutput) {

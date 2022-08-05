@@ -40,12 +40,20 @@ extension CategoryListVC: CategoryListViewModelDelegate {
     func handleViewModelOutput(_ output: CategoryListViewModelOutput) {
         switch output {
         case .updateTitle(let title):
-            self.title = title
+            self.title = title.firstUppercased
         case .setLoading(let isLoading):
             self.loadingIndicator.isHidden = !isLoading
         case .showCategoryList(let categoryList):
             self.categoryList = categoryList
             self.updateDataSource()
+        }
+    }
+    
+    func navigare(to route: CategoryListViewRoute) {
+        switch route {
+        case .productList(let category):
+            let viewController = AppBuilder.makeProductList(with: category)
+            show(viewController, sender: nil)
         }
     }
 }
@@ -56,12 +64,12 @@ extension CategoryListVC: UITableViewDelegate {
    
     func getDataSource() ->  UITableViewDiffableDataSource<Section, String> {
         
-        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier -> UITableViewCell? in
+        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryListCell", for: indexPath) as? CategoryListCell else {
                 fatalError("Error dequing cell: Cell")
             }
-            cell.categoryTitle?.text = itemIdentifier
+            cell.categoryTitle?.text = itemIdentifier.firstUppercased
             return cell
         })
         
@@ -82,6 +90,6 @@ extension CategoryListVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO : Implement
+        viewModel.selectCategory(at: indexPath.row)
     }
 }
