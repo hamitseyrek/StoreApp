@@ -13,7 +13,7 @@ final class AppBuilder {
     static func makeHome() -> CategoryListVC {
         
         let viewController = CategoryListVC(nibName: "CategoryListVC", bundle: Bundle.main)
-        
+        viewController.viewModel = CategoryListViewModel(service: app.service)
         return viewController
     }
 }

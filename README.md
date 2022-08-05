@@ -12,4 +12,9 @@ Create App folder (AppRouter, AppDelegate, AppBuilder)
 
 Create Network folder (NetworkRequest, NetworkError, Constants, APIService)
 
+Create README file
+
+* 3 - Create CategoriesList scene(Homepage)
+
+Create CategoryList scene with MVVM Pattern
 

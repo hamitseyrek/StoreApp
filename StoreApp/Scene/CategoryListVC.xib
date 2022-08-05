@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryListVC" customModule="StoreApp" customModuleProvider="target">
             <connections>
+                <outlet property="loadingIndicator" destination="VV7-l7-xhn" id="LgJ-M9-Cqe"/>
+                <outlet property="tableView" destination="z2y-hx-0nd" id="Kht-bn-ObT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,14 +19,35 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z2y-hx-0nd">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="VV7-l7-xhn">
+                    <rect key="frame" x="157" y="398" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="JmV-Ie-lr5"/>
+                        <constraint firstAttribute="height" constant="100" id="XUe-MO-PBQ"/>
+                    </constraints>
+                </activityIndicatorView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="linkColor"/>
-            <point key="canvasLocation" x="139" y="139"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="z2y-hx-0nd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1FY-Mu-w6Y"/>
+                <constraint firstAttribute="bottom" secondItem="z2y-hx-0nd" secondAttribute="bottom" id="2ds-LV-4jG"/>
+                <constraint firstItem="VV7-l7-xhn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GaG-9K-7Y1"/>
+                <constraint firstItem="z2y-hx-0nd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="HkK-py-5ta"/>
+                <constraint firstItem="VV7-l7-xhn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Jt0-2J-d0e"/>
+                <constraint firstItem="z2y-hx-0nd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Y8w-cI-gUP"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
