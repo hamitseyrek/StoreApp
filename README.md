@@ -1,6 +1,8 @@
 
 ## StoreApp
 
+<img src="pokemon.gif" alt="gif1" style="width:400px;"/>
+
 ### Commits
 
 1 - Initial Commit
@@ -37,3 +39,22 @@
 * when add button doscounted item's price renewed
 * and button backgrouncolor changed to gray
 
+8 - configure rateStar and userDefault
+
+* created starfilled helper
+* when click the AddTobuttonCart the product id save to userDefault
+
+9 - edit some issues of addToCart
+
+* refactoring
+* add readme gif
+
+
+
+## Features
+
+* MVVM
+* Alamofire
+* KingFisher
+* UITableViewDiffableDataSource
+* UICollectionViewDiffableDataSource

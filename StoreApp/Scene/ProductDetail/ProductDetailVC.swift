@@ -43,11 +43,19 @@ class ProductDetailVC: UIViewController {
     private var isAddToCart: Bool = false
     private var discountLevel: Int = 1
     
+    var productInCart: [Int] = []
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         viewModel.load()
-        dataSource = getDataSource()
         configureCollectionView()
+        
+        if let pro = userDefaults.array(forKey: "productInCart") as? [Int] {
+            productInCart = pro
+        }
+        
+        dataSource = getDataSource()
     }
     
     @IBAction func addToCartButtonClicked(_ sender: Any) {
@@ -55,17 +63,13 @@ class ProductDetailVC: UIViewController {
         isAddToCart = true
         discountLevel += 1
         
-        var productInCart: [Int] = []
-        if let pro = userDefaults.array(forKey: "productInCart") as? [Int] {
-            productInCart = pro
-        }
-        
         if let productId = productId {
             productInCart.append(productId)
             userDefaults.set(productInCart, forKey: "productInCart")
         }
         
         addButtonStyle.isEnabled = false
+        addButtonStyle.tintColor = .white
         updateDataSource()
     }
     
@@ -98,6 +102,14 @@ extension ProductDetailVC: ProductDetailViewModelDelegate {
     func showDetail(_ product: ProductDetailModel) {
         
         self.productId = product.id
+        
+        if productInCart.contains(product.id) {
+            print(productInCart, product.id)
+            addButtonStyle.isEnabled = false
+            addButtonStyle.backgroundColor = .gray
+            addButtonStyle.tintColor = .white
+        }
+        
         self.titleLabel.text = product.title
         self.imageView.kf.setImage(with: URL(string: product.image), placeholder: UIImage(named: "indiBackground"))
         self.descriptionTextView.text = product.description
@@ -119,7 +131,6 @@ extension ProductDetailVC: UICollectionViewDelegate {
             
             let product = self.discountProductList[indexPath.row]
             cell.titleLabel?.text = product.title
-            cell.priceLabel.text = "\(product.price.originalPrice) €"
             
             if let productDetail = self.allProductList.first (where: { $0.id == self.discountProductList[indexPath.row].id }) {
                 
@@ -129,17 +140,14 @@ extension ProductDetailVC: UICollectionViewDelegate {
                 RatingHelper.fillStar(rate: productDetail.rating.rate, star1: cell.star1, star2: cell.star2, star3: cell.star3, star4: cell.star4, star5: cell.star5)
             }
             
-            var productInCart: [Int] = []
-            if let pro = userDefaults.array(forKey: "productInCart") as? [Int] {
-                productInCart = pro
-            }
-            
-            if productInCart.contains(product.id) {
+            if self.productInCart.contains(product.id) {
                 cell.addButtonStyle.backgroundColor = .gray
             }
             
-            if self.isAddToCart, let level = product.price.discountLevels.first (where: { $0.level == self.discountLevel })?.discountedPrice {
+            if let level = product.price.discountLevels.first (where: { $0.level == self.productInCart.count + 1 })?.discountedPrice {
                 cell.priceLabel.text = "\(String(describing: level)) €"
+            } else {
+                cell.priceLabel.text = "\(product.price.originalPrice) €"
             }
             
             return cell

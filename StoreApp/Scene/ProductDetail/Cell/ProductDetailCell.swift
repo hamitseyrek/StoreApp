@@ -20,11 +20,15 @@ class ProductDetailCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var addButtonStyle: UIButton!
     
+    var viewController: ProductDetailVC?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        viewController = ProductDetailVC()
     }
-
     @IBAction func addToCartButtonClicked(_ sender: Any) {
+        addButtonStyle.isEnabled = false
+        addButtonStyle.tintColor = .white
     }
 }

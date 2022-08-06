@@ -91,7 +91,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add to cart"/>
                                 <connections>
-                                    <action selector="addToCartButtonClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="qBm-wj-RoI"/>
+                                    <action selector="addToCartButtonClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ZYR-K4-0eM"/>
                                 </connections>
                             </button>
                         </subviews>
