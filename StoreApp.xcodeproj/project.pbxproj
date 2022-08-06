@@ -10,6 +10,7 @@
 		5E11AC02289E56AB00D01C39 /* ProductDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11AC00289E56AB00D01C39 /* ProductDetailCell.swift */; };
 		5E11AC03289E56AB00D01C39 /* ProductDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E11AC01289E56AB00D01C39 /* ProductDetailCell.xib */; };
 		5E11AC07289E97BD00D01C39 /* RatingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11AC06289E97BD00D01C39 /* RatingHelper.swift */; };
+		5E11AC09289EAA8500D01C39 /* storeApp.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5E11AC08289EAA8500D01C39 /* storeApp.gif */; };
 		5EC47C19289D6FB400892FEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C18289D6FB400892FEE /* AppDelegate.swift */; };
 		5EC47C23289D6FB400892FEE /* StoreApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5EC47C21289D6FB400892FEE /* StoreApp.xcdatamodeld */; };
 		5EC47C25289D6FB600892FEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EC47C24289D6FB600892FEE /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		5E11AC00289E56AB00D01C39 /* ProductDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailCell.swift; sourceTree = "<group>"; };
 		5E11AC01289E56AB00D01C39 /* ProductDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailCell.xib; sourceTree = "<group>"; };
 		5E11AC06289E97BD00D01C39 /* RatingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingHelper.swift; sourceTree = "<group>"; };
+		5E11AC08289EAA8500D01C39 /* storeApp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = storeApp.gif; sourceTree = "<group>"; };
 		5EC47C15289D6FB400892FEE /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC47C18289D6FB400892FEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EC47C22289D6FB400892FEE /* StoreApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoreApp.xcdatamodel; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		5EC47C0C289D6FB400892FEE = {
 			isa = PBXGroup;
 			children = (
+				5E11AC08289EAA8500D01C39 /* storeApp.gif */,
 				5EC47C64289D764E00892FEE /* README.md */,
 				5EC47C17289D6FB400892FEE /* StoreApp */,
 				5EC47C31289D6FB600892FEE /* StoreAppTests */,
@@ -420,6 +423,7 @@
 				5EC47C28289D6FB600892FEE /* LaunchScreen.storyboard in Resources */,
 				5EC47C7D289D8E1800892FEE /* ProductListCell.xib in Resources */,
 				5E11AC03289E56AB00D01C39 /* ProductDetailCell.xib in Resources */,
+				5E11AC09289EAA8500D01C39 /* storeApp.gif in Resources */,
 				5EC47C25289D6FB600892FEE /* Assets.xcassets in Resources */,
 				5EC47C50289D717600892FEE /* CategoryListVC.xib in Resources */,
 				5EC47C69289D7F9900892FEE /* CategoryListCell.xib in Resources */,
