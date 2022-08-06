@@ -10,6 +10,7 @@ import Foundation
 protocol ProductListViewModelProtocol {
     var delegate: ProductListViewModelDelegate? { get set }
     func load()
+    func selectProduct(id: Int)
 }
 
 enum ProductListViewModelOutput: Equatable {
@@ -19,6 +20,11 @@ enum ProductListViewModelOutput: Equatable {
     case showProductList([ProductListModel])
 }
 
+enum ProductListViewRoute {
+    case productDetail(id: Int)
+}
+
 protocol ProductListViewModelDelegate: AnyObject {
     func handleViewModelOutput(_ output: ProductListViewModelOutput)
+    func navigare(to route: ProductListViewRoute)
 }

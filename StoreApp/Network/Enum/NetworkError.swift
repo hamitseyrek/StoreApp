@@ -12,4 +12,5 @@ enum NetworkError: String, Error {
     case apiError = "Failed to fetch data"
     case invalidEndpoint = "Invalid endpoint"
     case serializationError = "Failed to decode data"
+    case notExist = "Data not exist"
 }

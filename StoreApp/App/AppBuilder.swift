@@ -24,4 +24,12 @@ final class AppBuilder {
         
         return viewController
     }
+    
+    static func makeProductDetail(with id: Int) -> ProductDetailVC {
+        
+        let viewController = ProductDetailVC(nibName: "ProductDetailVC", bundle: Bundle.main)
+        viewController.viewModel = ProductDetailViewModel(service: app.service, id: id)
+        
+        return viewController
+    }
 }

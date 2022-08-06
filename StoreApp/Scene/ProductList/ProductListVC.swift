@@ -30,10 +30,10 @@ class ProductListVC: UIViewController {
         super.viewDidLoad()
         viewModel.load()
         dataSource = getDataSource()
-        configureCollectionVie()
+        configureCollectionView()
     }
     
-    func configureCollectionVie() {
+    func configureCollectionView() {
         
         let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.sectionInset = UIEdgeInsets(top: 5, left: 15, bottom: 0, right: 15)
@@ -53,6 +53,14 @@ extension ProductListVC: ProductListViewModelDelegate {
         case .showProductList(let productList):
             self.productList = productList
             self.updateDataSource()
+        }
+    }
+    
+    func navigare(to route: ProductListViewRoute) {
+        switch route {
+        case .productDetail(let id):
+            let viewController = AppBuilder.makeProductDetail(with: id)
+            show(viewController, sender: nil)
         }
     }
 }
@@ -87,6 +95,7 @@ extension ProductListVC: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let product = self.productList[indexPath.row]
+        viewModel.selectProduct(id: product.id)
     }
 }

@@ -23,7 +23,7 @@ final class ProductListViewModel: ProductListViewModelProtocol {
         self.notify(.updateTitle(category ?? "Products"))
         notify(.setLoading(true))
         
-        service?.getProducts(category: category!) { [weak self] result in
+        service?.getProductsByCategory(category: category!) { [weak self] result in
             
             guard let self = self else { return }
             self.notify(.setLoading(false))
@@ -35,6 +35,10 @@ final class ProductListViewModel: ProductListViewModelProtocol {
                 print(error.rawValue)
             }
         }
+    }
+    
+    func selectProduct(id: Int) {
+        delegate?.navigare(to: .productDetail(id: id))
     }
     
     private func notify(_ output: ProductListViewModelOutput) {
