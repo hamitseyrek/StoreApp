@@ -54,6 +54,18 @@ class ProductDetailVC: UIViewController {
         addButtonStyle.backgroundColor = .gray
         isAddToCart = true
         discountLevel += 1
+        
+        var productInCart: [Int] = []
+        if let pro = userDefaults.array(forKey: "productInCart") as? [Int] {
+            productInCart = pro
+        }
+        
+        if let productId = productId {
+            productInCart.append(productId)
+            userDefaults.set(productInCart, forKey: "productInCart")
+        }
+        
+        addButtonStyle.isEnabled = false
         updateDataSource()
     }
     
@@ -91,6 +103,8 @@ extension ProductDetailVC: ProductDetailViewModelDelegate {
         self.descriptionTextView.text = product.description
         self.priceLabel.text = "\(product.price) €"
         self.countLabel.text = "(\(product.rating.count))"
+        
+        RatingHelper.fillStar(rate: product.rating.rate, star1: self.star1, star2: self.star2, star3: self.star3, star4: self.star4, star5: self.star5)
     }
 }
 
@@ -108,11 +122,19 @@ extension ProductDetailVC: UICollectionViewDelegate {
             cell.priceLabel.text = "\(product.price.originalPrice) €"
             
             if let productDetail = self.allProductList.first (where: { $0.id == self.discountProductList[indexPath.row].id }) {
+                
                 cell.imageView.kf.setImage(with: URL(string:  productDetail.image), placeholder: UIImage(systemName: "photo.artframe"))
                 cell.countLabel.text = "(\(productDetail.rating.rate))"
+                
+                RatingHelper.fillStar(rate: productDetail.rating.rate, star1: cell.star1, star2: cell.star2, star3: cell.star3, star4: cell.star4, star5: cell.star5)
             }
             
-            if product.id == self.productId && self.isAddToCart {
+            var productInCart: [Int] = []
+            if let pro = userDefaults.array(forKey: "productInCart") as? [Int] {
+                productInCart = pro
+            }
+            
+            if productInCart.contains(product.id) {
                 cell.addButtonStyle.backgroundColor = .gray
             }
             
@@ -137,10 +159,6 @@ extension ProductDetailVC: UICollectionViewDelegate {
         if self.isAddToCart {
             self.collectionView.reloadData()
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
     }
 }
 

@@ -38,24 +38,24 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="pMv-xN-wPD">
                                 <rect key="frame" x="8" y="190" width="60" height="12"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pEj-fi-FIb">
-                                        <rect key="frame" x="0.0" y="-0.5" width="9.5" height="12"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="pEj-fi-FIb">
+                                        <rect key="frame" x="0.0" y="0.0" width="9.5" height="12"/>
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FM5-PS-YqD">
-                                        <rect key="frame" x="12.5" y="-0.5" width="9.5" height="12"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="FM5-PS-YqD">
+                                        <rect key="frame" x="12.5" y="0.0" width="9.5" height="12"/>
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pkY-Mf-SXr">
-                                        <rect key="frame" x="25" y="-0.5" width="10" height="12"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="pkY-Mf-SXr">
+                                        <rect key="frame" x="25" y="0.0" width="10" height="12"/>
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="giN-r4-6tu">
-                                        <rect key="frame" x="38" y="-0.5" width="9.5" height="12"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="giN-r4-6tu">
+                                        <rect key="frame" x="38" y="0.0" width="9.5" height="12"/>
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gqq-rR-Yn5">
-                                        <rect key="frame" x="50.5" y="-0.5" width="9.5" height="12"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="gqq-rR-Yn5">
+                                        <rect key="frame" x="50.5" y="0.0" width="9.5" height="12"/>
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                     </imageView>
                                 </subviews>
@@ -142,7 +142,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="star_empty" width="118" height="108"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

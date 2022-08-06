@@ -10,6 +10,7 @@ import Foundation
 import Foundation
 
 let app = AppContainer()
+let userDefaults = UserDefaults.standard
 
 final class AppContainer {
     

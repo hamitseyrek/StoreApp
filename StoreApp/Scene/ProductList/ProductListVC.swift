@@ -87,6 +87,9 @@ extension ProductListVC: UICollectionViewDelegate {
             cell.imageView.kf.setImage(with: URL(string: product.image), placeholder: UIImage(systemName: "photo.artframe"))
             cell.priceLabel.text = "\(product.price) €"
             cell.ratingCountLabel.text = "(\(product.rating.rate))"
+            
+            RatingHelper.fillStar(rate: product.rating.rate, star1: cell.star1, star2: cell.star2, star3: cell.star3, star4: cell.star4, star5: cell.star5)
+            
             return cell
         })
         
