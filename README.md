@@ -3,27 +3,32 @@
 
 ### Commits
 
-* 1 - Initial Commit
+1 - Initial Commit
 
-Setup project
+* Setup project
 
-* 2 - Configure app start. Connected network. Successful request categories and print them
+2 - Configure app start. Connected network. Successful request categories and print them
 
-Create App folder (AppRouter, AppDelegate, AppBuilder)
+* Create App folder (AppRouter, AppDelegate, AppBuilder)
 
-Create Network folder (NetworkRequest, NetworkError, Constants, APIService)
+* Create Network folder (NetworkRequest, NetworkError, Constants, APIService)
 
-Create README file
+* Create README file
 
-* 3 - Create CategoriesList scene(Homepage)
+3 - Create CategoriesList page(Homepage)
 
-Create CategoryList scene with MVVM Pattern
+* Create CategoryList page with MVVM Pattern
 
-* 4 - created ProductList scene
+4 - created ProductList page
 
-Create ProductList scene with collectionView. Configure CategoryList viewModel for link to ProductList
+* Create ProductList page with collectionView. Configure CategoryList viewModel for link to ProductList
 
-* 5 - created ProductDetail scene
+5 - created ProductDetail page
 
-Create ProductDetail scene with scrollView. Configure ProductList viewModel for link to ProductDetail. 
+* Create ProductDetail page with scrollView. Configure ProductList viewModel for link to ProductDetail. 
+
+6 - added sorted button to ProductList page
+
+* sorting done with UICollectionViewDiffableDataSource
+* edited some issue on CategoryList page
 

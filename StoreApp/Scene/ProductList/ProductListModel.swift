@@ -19,7 +19,7 @@ struct Rating: Decodable, Equatable {
     let rate: Double
 }
 
-extension ProductListModel: Hashable {
+extension ProductListModel: Hashable, Comparable {
     
     public func hash(into hasher: inout Hasher) {
         return hasher.combine(id)
@@ -27,5 +27,9 @@ extension ProductListModel: Hashable {
     
     public static func == (lhs: ProductListModel, rhs: ProductListModel) -> Bool {
         return lhs.id == rhs.id
+    }
+    
+    static func < (lhs: ProductListModel, rhs: ProductListModel) -> Bool {
+        return lhs.id < rhs.id
     }
 }

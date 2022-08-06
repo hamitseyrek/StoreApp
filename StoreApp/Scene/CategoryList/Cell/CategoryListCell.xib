@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,30 +19,28 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vD-aO-v9p">
-                        <rect key="frame" x="20" y="0.0" width="270" height="44"/>
+                        <rect key="frame" x="10" y="0.0" width="260" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xiK-gH-bj8">
-                        <rect key="frame" x="290" y="14" width="20" height="16.5"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xiK-gH-bj8">
+                        <rect key="frame" x="290" y="15" width="20" height="14"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="Brv-Kg-zrh"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="pYf-uR-let"/>
-                            <constraint firstAttribute="height" constant="20" id="yPX-Xu-Hfa"/>
+                            <constraint firstAttribute="width" constant="20" id="6cP-wr-LNQ"/>
+                            <constraint firstAttribute="height" constant="20" id="n9n-ay-Jyc"/>
                         </constraints>
+                        <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="xiK-gH-bj8" firstAttribute="leading" secondItem="8vD-aO-v9p" secondAttribute="trailing" id="4EA-Rp-GJq"/>
-                    <constraint firstItem="xiK-gH-bj8" firstAttribute="centerY" secondItem="8vD-aO-v9p" secondAttribute="centerY" id="NCj-js-qsO"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="xiK-gH-bj8" secondAttribute="trailing" constant="-6" id="eQh-Ot-I2y"/>
-                    <constraint firstItem="8vD-aO-v9p" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hTZ-lv-3eF"/>
-                    <constraint firstItem="xiK-gH-bj8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-32" id="m0H-8t-pmy"/>
-                    <constraint firstItem="8vD-aO-v9p" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="v1h-uZ-3vI"/>
-                    <constraint firstAttribute="bottom" secondItem="8vD-aO-v9p" secondAttribute="bottom" id="yZT-VZ-Gas"/>
+                    <constraint firstItem="8vD-aO-v9p" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3AD-zR-bwD"/>
+                    <constraint firstAttribute="bottom" secondItem="8vD-aO-v9p" secondAttribute="bottom" id="CpH-i1-hGb"/>
+                    <constraint firstItem="xiK-gH-bj8" firstAttribute="leading" secondItem="8vD-aO-v9p" secondAttribute="trailing" constant="20" id="H00-ad-0u6"/>
+                    <constraint firstItem="8vD-aO-v9p" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="guV-Gg-aEq"/>
+                    <constraint firstItem="xiK-gH-bj8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xMF-Oz-DF0"/>
+                    <constraint firstAttribute="trailing" secondItem="xiK-gH-bj8" secondAttribute="trailing" constant="10" id="zxq-eH-0Eg"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

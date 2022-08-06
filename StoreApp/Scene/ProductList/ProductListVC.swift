@@ -31,6 +31,14 @@ class ProductListVC: UIViewController {
         viewModel.load()
         dataSource = getDataSource()
         configureCollectionView()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down"), style: .done, target: self, action: #selector(sortProductList))
+        self.navigationController?.navigationBar.tintColor = .black
+    }
+    
+    @objc func sortProductList() {
+        self.productList = self.productList.reversed()
+        updateDataSource()
     }
     
     func configureCollectionView() {
