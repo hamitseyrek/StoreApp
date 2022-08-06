@@ -18,6 +18,7 @@ class ProductDetailCell: UICollectionViewCell {
     @IBOutlet weak var star5: UIImageView!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var addButtonStyle: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

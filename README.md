@@ -29,6 +29,11 @@
 
 6 - added sorted button to ProductList page
 
-* sorting done with UICollectionViewDiffableDataSource
+* sorting done with UICollectionViewDiffableDataSource (dont use any request to api)
 * edited some issue on CategoryList page
+
+7 - added action for AddToCartButton in ProductDetail page
+
+* when add button doscounted item's price renewed
+* and button backgrouncolor changed to gray
 

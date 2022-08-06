@@ -19,6 +19,7 @@ class ProductDetailVC: UIViewController {
     @IBOutlet weak var star5: UIImageView!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var addButtonStyle: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -33,15 +34,27 @@ class ProductDetailVC: UIViewController {
         }
     }
     
+    var delege: AddButtonActionDelegate?
+    
     private var dataSource: UICollectionViewDiffableDataSource<Section, DiscountProductModel>!
     private var discountProductList: [DiscountProductModel] = []
     private var allProductList: [ProductListModel] = []
+    private var productId: Int?
+    private var isAddToCart: Bool = false
+    private var discountLevel: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.load()
         dataSource = getDataSource()
         configureCollectionView()
+    }
+    
+    @IBAction func addToCartButtonClicked(_ sender: Any) {
+        addButtonStyle.backgroundColor = .gray
+        isAddToCart = true
+        discountLevel += 1
+        updateDataSource()
     }
     
     func configureCollectionView() {
@@ -56,13 +69,13 @@ class ProductDetailVC: UIViewController {
 extension ProductDetailVC: ProductDetailViewModelDelegate {
     
     func handleViewModelOutput(_ output: ProductDetailViewModelOutput) {
+        
         switch output {
         case .updateTitle(let title):
             self.title = title
         case .setLoading(let isLoading):
             self.loadingIndicator.isHidden = !isLoading
         case .showDiscountProductList(let discountProductList):
-            print("*******", discountProductList)
             self.discountProductList = discountProductList
             self.updateDataSource()
         case .allProductList(let productList):
@@ -71,6 +84,8 @@ extension ProductDetailVC: ProductDetailViewModelDelegate {
     }
     
     func showDetail(_ product: ProductDetailModel) {
+        
+        self.productId = product.id
         self.titleLabel.text = product.title
         self.imageView.kf.setImage(with: URL(string: product.image), placeholder: UIImage(named: "indiBackground"))
         self.descriptionTextView.text = product.description
@@ -90,11 +105,19 @@ extension ProductDetailVC: UICollectionViewDelegate {
             
             let product = self.discountProductList[indexPath.row]
             cell.titleLabel?.text = product.title
-            cell.priceLabel.text = "\(product.price.originalPrice)"
+            cell.priceLabel.text = "\(product.price.originalPrice) €"
             
             if let productDetail = self.allProductList.first (where: { $0.id == self.discountProductList[indexPath.row].id }) {
                 cell.imageView.kf.setImage(with: URL(string:  productDetail.image), placeholder: UIImage(systemName: "photo.artframe"))
                 cell.countLabel.text = "(\(productDetail.rating.rate))"
+            }
+            
+            if product.id == self.productId && self.isAddToCart {
+                cell.addButtonStyle.backgroundColor = .gray
+            }
+            
+            if self.isAddToCart, let level = product.price.discountLevels.first (where: { $0.level == self.discountLevel })?.discountedPrice {
+                cell.priceLabel.text = "\(String(describing: level)) €"
             }
             
             return cell
@@ -110,6 +133,10 @@ extension ProductDetailVC: UICollectionViewDelegate {
         snapShot.appendItems(discountProductList)
         
         dataSource.apply(snapShot, animatingDifferences: true, completion: nil)
+        
+        if self.isAddToCart {
+            self.collectionView.reloadData()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

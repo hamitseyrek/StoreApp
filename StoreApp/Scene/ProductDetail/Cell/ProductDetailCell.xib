@@ -127,6 +127,7 @@
             </constraints>
             <size key="customSize" width="158" height="219"/>
             <connections>
+                <outlet property="addButtonStyle" destination="cVm-VS-Y9v" id="1Rm-uG-24t"/>
                 <outlet property="countLabel" destination="WaY-Zz-eqC" id="gqn-fq-SnX"/>
                 <outlet property="imageView" destination="0Fj-Nv-wV8" id="rzd-x0-x9y"/>
                 <outlet property="priceLabel" destination="IpT-OT-jAd" id="x5v-Sk-iAS"/>
