@@ -1,7 +1,7 @@
 
 ## StoreApp
 
-<img src="pokemon.gif" alt="gif1" style="width:400px;"/>
+<img src="storeApp.gif" alt="gif1" style="width:400px;"/>
 
 ### Commits
 
