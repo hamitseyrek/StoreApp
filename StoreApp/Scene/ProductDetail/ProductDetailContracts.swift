@@ -23,8 +23,5 @@ enum ProductDetailViewModelOutput {
 protocol ProductDetailViewModelDelegate: AnyObject {
     func handleViewModelOutput(_ output: ProductDetailViewModelOutput)
     func showDetail(_ product: ProductDetailModel)
-}
-
-protocol AddButtonActionDelegate {
-    func changeColor(id: Int?)
+    func getDiscountPrices(_ productId: Int)
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class ProductDetailCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var star1: UIImageView!
@@ -18,17 +18,24 @@ class ProductDetailCell: UICollectionViewCell {
     @IBOutlet weak var star5: UIImageView!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var priceOldLabel: UILabel!
     @IBOutlet weak var addButtonStyle: UIButton!
     
-    var viewController: ProductDetailVC?
+    var productId: Int!
+    
+    var viewModel: ProductDetailViewModelProtocol!
+    
+    var productInCart: [Int] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        viewController = ProductDetailVC()
+        
+        if let pro = userDefaults.array(forKey: "productInCart") as? [Int] {
+            productInCart = pro
+        }
     }
+    
     @IBAction func addToCartButtonClicked(_ sender: Any) {
-        addButtonStyle.isEnabled = false
-        addButtonStyle.tintColor = .white
+        viewModel.delegate?.getDiscountPrices(productId)
     }
 }

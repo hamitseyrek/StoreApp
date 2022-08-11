@@ -1,7 +1,7 @@
 
 ## StoreApp
 
-<img src="storeApp.gif" alt="gif1" style="width:400px;"/>
+<img src="storeApp2.gif" alt="gif1" style="width:400px;"/>
 
 ### Commits
 
@@ -49,6 +49,11 @@
 * refactoring
 * add readme gif
 
+9 - make discounted prices on products when adding to cart
+
+* As the products are added to the cart, the discount rates in the prices of other products change, except for the added product.
+* placeholder set without image loading with kingfisher
+* add new readme gif
 
 
 ## Features

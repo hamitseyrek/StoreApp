@@ -84,7 +84,7 @@ extension ProductListVC: UICollectionViewDelegate {
             
             let product = self.productList[indexPath.row]
             cell.titleLabel?.text = product.title
-            cell.imageView.kf.setImage(with: URL(string: product.image), placeholder: UIImage(systemName: "photo.artframe"))
+            cell.imageView.kf.setImage(with: URL(string: product.image), placeholder: UIImage(systemName: "rays"))
             cell.priceLabel.text = "\(product.price) €"
             cell.ratingCountLabel.text = "(\(product.rating.rate))"
             

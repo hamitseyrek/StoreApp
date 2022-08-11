@@ -34,12 +34,11 @@ class ProductDetailVC: UIViewController {
         }
     }
     
-    var delege: AddButtonActionDelegate?
-    
     private var dataSource: UICollectionViewDiffableDataSource<Section, DiscountProductModel>!
     private var discountProductList: [DiscountProductModel] = []
     private var allProductList: [ProductListModel] = []
     private var productId: Int?
+    private var discountId: Int?
     private var isAddToCart: Bool = false
     private var discountLevel: Int = 1
     
@@ -59,7 +58,6 @@ class ProductDetailVC: UIViewController {
     }
     
     @IBAction func addToCartButtonClicked(_ sender: Any) {
-        addButtonStyle.backgroundColor = .gray
         isAddToCart = true
         discountLevel += 1
         
@@ -68,13 +66,13 @@ class ProductDetailVC: UIViewController {
             userDefaults.set(productInCart, forKey: "productInCart")
         }
         
-        addButtonStyle.isEnabled = false
-        addButtonStyle.tintColor = .white
+        addButtonStyle.changeStyleForAddToCart()
         updateDataSource()
     }
     
     func configureCollectionView() {
         
+        //print("eni sonu yoksa burdamı aceba")
         let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.sectionInset = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
         layout?.minimumInteritemSpacing = 5
@@ -105,18 +103,31 @@ extension ProductDetailVC: ProductDetailViewModelDelegate {
         
         if productInCart.contains(product.id) {
             print(productInCart, product.id)
-            addButtonStyle.isEnabled = false
-            addButtonStyle.backgroundColor = .gray
-            addButtonStyle.tintColor = .white
+            addButtonStyle.changeStyleForAddToCart()
         }
         
         self.titleLabel.text = product.title
-        self.imageView.kf.setImage(with: URL(string: product.image), placeholder: UIImage(named: "indiBackground"))
+        self.imageView.kf.setImage(with: URL(string: product.image), placeholder: UIImage(systemName: "rays"))
         self.descriptionTextView.text = product.description
         self.priceLabel.text = "\(product.price) €"
         self.countLabel.text = "(\(product.rating.count))"
         
         RatingHelper.fillStar(rate: product.rating.rate, star1: self.star1, star2: self.star2, star3: self.star3, star4: self.star4, star5: self.star5)
+    }
+    
+    func getDiscountPrices(_ productId: Int) {
+        
+        if productId == self.productId {
+            addButtonStyle.changeStyleForAddToCart()
+        }
+        
+        self.discountId = productId
+        self.isAddToCart = true
+        
+        self.productInCart.append(productId)
+        userDefaults.set(self.productInCart, forKey: "productInCart")
+        
+        self.updateDataSource()
     }
 }
 
@@ -134,21 +145,50 @@ extension ProductDetailVC: UICollectionViewDelegate {
             
             if let productDetail = self.allProductList.first (where: { $0.id == self.discountProductList[indexPath.row].id }) {
                 
-                cell.imageView.kf.setImage(with: URL(string:  productDetail.image), placeholder: UIImage(systemName: "photo.artframe"))
+                cell.imageView.kf.setImage(with: URL(string:  productDetail.image), placeholder: UIImage(systemName: "rays"))
                 cell.countLabel.text = "(\(productDetail.rating.rate))"
                 
                 RatingHelper.fillStar(rate: productDetail.rating.rate, star1: cell.star1, star2: cell.star2, star3: cell.star3, star4: cell.star4, star5: cell.star5)
             }
             
             if self.productInCart.contains(product.id) {
-                cell.addButtonStyle.backgroundColor = .gray
+                cell.addButtonStyle.changeStyleForAddToCart()
             }
             
-            if let level = product.price.discountLevels.first (where: { $0.level == self.productInCart.count + 1 })?.discountedPrice {
-                cell.priceLabel.text = "\(String(describing: level)) €"
+            if self.discountId == product.id {
+                if let level = product.price.discountLevels.first (where: { $0.level == self.productInCart.count })?.discountedPrice {
+                    
+                    cell.priceLabel.setColoredLabel("\(String(describing: level.rounded(toPlaces: 2))) €")
+                    cell.priceOldLabel.isHidden = false
+                    cell.priceOldLabel.setStrikeForText("\(product.price.originalPrice) €")
+                } else {
+                    
+                    cell.priceLabel.text = "\(product.price.originalPrice) €"
+                    cell.priceOldLabel.isHidden = true
+                }
+            } else if let level = product.price.discountLevels.first (where: { $0.level == self.productInCart.count + 1 })?.discountedPrice {
+                
+                cell.priceLabel.setColoredLabel("\(String(describing: level.rounded(toPlaces: 2))) €")
+                cell.priceOldLabel.isHidden = false
+                cell.priceOldLabel.setStrikeForText("\(product.price.originalPrice) €")
+                
+            } else if self.productInCart.count >= 4 {
+                
+                if let level = product.price.discountLevels.first (where: { $0.level == 4 })?.discountedPrice {
+                    
+                    cell.priceLabel.setColoredLabel("\(String(describing: level.rounded(toPlaces: 2))) €")
+                    cell.priceOldLabel.isHidden = false
+                    cell.priceOldLabel.setStrikeForText("\(product.price.originalPrice) €")
+                }
+                
             } else {
+                
                 cell.priceLabel.text = "\(product.price.originalPrice) €"
+                cell.priceOldLabel.isHidden = true
             }
+            
+            cell.productId = product.id
+            cell.viewModel = self.viewModel
             
             return cell
         })
@@ -166,6 +206,7 @@ extension ProductDetailVC: UICollectionViewDelegate {
         
         if self.isAddToCart {
             self.collectionView.reloadData()
+            self.isAddToCart = false
         }
     }
 }

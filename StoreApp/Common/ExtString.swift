@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     
@@ -21,4 +22,13 @@ extension String {
 extension StringProtocol {
     var firstUppercased: String { prefix(1).uppercased() + dropFirst() }
     var firstCapitalized: String { prefix(1).capitalized + dropFirst() }
+}
+
+extension NSMutableAttributedString{
+    func setColorForText(_ textToFind: String, with color: UIColor) {
+        let range = self.mutableString.range(of: textToFind, options: .caseInsensitive)
+        if range.location != NSNotFound {
+            addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+        }
+    }
 }

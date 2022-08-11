@@ -60,8 +60,8 @@ final class ProductDetailViewModel: ProductDetailViewModelProtocol {
         })
     }
     
-    func selectProduct(at index: Int) {
-        
+    func getDiscountPrices(productId: Int) {
+        delegate?.getDiscountPrices(productId)
     }
     
     private func notify(_ output: ProductDetailViewModelOutput) {
